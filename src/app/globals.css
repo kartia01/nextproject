@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
+/* ========== 디자인 토큰 (JSON 테마 기반) ========== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Palette */
+  --primary: #FFE300;
+  --green: #00D080;
+  --red: #EC4343;
+  --blue: #425EFF;
+  --swiper-default: #007AFF;
+
+  /* White scale */
+  --white100: #FFFFFF;
+  --white40: rgba(255, 255, 255, 0.40);
+  --white30: rgba(255, 255, 255, 0.30);
+  --white20: rgba(255, 255, 255, 0.20);
+
+  /* Black / Gray scale */
+  --black5: #FAFAFA;
+  --black10: #F9F9F9;
+  --black15: #F7F7F7;
+  --black20: #F4F4F4;
+  --black25: #ECECEC;
+  --black30: #E6E6E6;
+  --black35: #DDDDDD;
+  --black40: #CCCCCC;
+  --black45: #BBBBBB;
+  --black50: #AAAAAA;
+  --black55: #999999;
+  --black60: #888888;
+  --black65: #777777;
+  --black70: #666666;
+  --black80: #444444;
+  --black85: #333333;
+  --black90: #222222;
+  --black100: #000000;
+
+  /* Layout */
+  --gutter: 20px;
+  --col-base: 12;
+  --container-padding: 0 40px;
+  --radius-sm: 6px;
+  --radius-circle: 50%;
+
+  /* Typography - font sizes */
+  --text-display: 90px;
+  --text-h2: 32px;
+  --text-h3-h5: 26px;
+  --text-body-large: 22px;
+  --text-body: 20px;
+  --text-body-medium: 18px;
+  --text-body-default: 16px;
+  --text-caption-large: 15px;
+  --text-caption: 14px;
+
+  /* Semantic */
+  --color-text-primary: rgb(0, 0, 0);
+  --color-text-secondary: rgb(136, 136, 136);
+  --color-text-dark: rgb(68, 68, 68);
+  --color-bg-light: rgb(247, 247, 247);
+  --color-border: rgb(230, 230, 230);
+  --color-footer-bg: rgb(249, 249, 249);
+  --color-focus-ring: rgb(0, 123, 255);
+  --focus-outline-offset: 2px;
+  --modal-backdrop: rgba(0, 0, 0, 0.5);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-base: 0.35s;
+  --transition-slow: 0.4s ease-in-out;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--white100);
+  --color-foreground: var(--color-text-primary);
+  --color-primary: var(--primary);
+  --color-green: var(--green);
+  --color-red: var(--red);
+  --color-blue: var(--blue);
+  --font-sans: "Pretendard Variable", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family-sans: "Pretendard Variable", sans-serif;
+  --radius-sm: var(--radius-sm);
+  --radius-full: var(--radius-circle);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--white100);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-default);
+}
+
+/* Focus (접근성) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: var(--focus-outline-offset);
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Disabled */
+button:disabled {
+  cursor: default;
 }
